@@ -18,8 +18,10 @@
   使用
   ---------------------------------------------------
   核心包 cn.lsg.smallioc.core 内的ApplicationContext是 唯一入口<br>
-  
-  ```java
+
+```java
+public class Test{
+public static void main(String[] args) {
   //设置默认日志记录器配置
   ApplicationContext.setDefaultLoggerParams(true, false, LEVEL.debug, "C:/Users/Administrator/Desktop");
   
@@ -35,18 +37,18 @@
    A a1=app.getbean(A.class);//根据类型
    A a2=(A) app.getbean("aaa");//根据id 要强制转换
    A a3=app.getbean("aaa",A.class);//根据id
-  
-  ```
-  将类纳入容器管理目前只支持注解  这里的注解只有两个  inject(id) id不输则默认按类型注入,可以是根据接口类型注入但要保证接口下只有唯一的受管类，否则必须使用id   member(id,single) id不输默认类名首字母小写，默认单例<br>
+   }}
+```
   
-  ``` java
+  将类纳入容器管理目前只支持注解  这里的注解只有两个  inject(id) id不输则默认按类型注入,可以是根据接口类型注入但要保证接口下只有唯一的受管类，否则必须使用id   member(id,single) id不输默认类名首字母小写，默认单例<br>
+```java
 @Member(id="jijij")
 public class A implements O{
     @Inject
     public B b;
 }
- ```
- ``` java
+```
+```java
  @Member(single=false)
 public class B implements O {
 
@@ -57,6 +59,6 @@ public class B implements O {
     public C c;
  
   }
-  ```
+```
   
  
